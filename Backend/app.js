@@ -16,10 +16,13 @@ app.use(cors());
 //Load Routers
 const userRouter = require("./src/routes/user.route");
 const itemRouter = require("./src/routes/item.route");
-
+const promotionRouter = require("./src/routes/promotion.route");
+const orderRouter = require("./src/routes/order.route");
 //Define routes
 app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(itemRouter.routes()).use(itemRouter.allowedMethods());
+app.use(promotionRouter.routes()).use(promotionRouter.allowedMethods());
+app.use(orderRouter.routes()).use(orderRouter.allowedMethods());
 
 app.use((ctx) => {
   ctx.body = "AF assignmnent Api";

@@ -1,5 +1,4 @@
 const { v4: uuidv4 } = require("uuid");
-const { use } = require("../routes/item.route");
 
 var users = new Map();
 
