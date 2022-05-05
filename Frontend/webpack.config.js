@@ -9,6 +9,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "/dist"),
     filename: "bundle.js",
+    publicPath: "/",
   },
   resolve: {
     extensions: [".js", ".jsx"],
@@ -60,12 +61,16 @@ module.exports = {
     },
     compress: true,
     port: 3000,
+    historyApiFallback: true,
   },
 
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
     new webpack.DefinePlugin({
       "process.env": JSON.stringify(dotenv.config().parsed),
+    }),
+    new webpack.ProvidePlugin({
+      React: "react",
     }),
   ],
 };

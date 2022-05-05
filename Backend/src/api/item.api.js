@@ -3,9 +3,8 @@ const { v4: uuidv4 } = require("uuid");
 var items = new Map();
 
 /*
- *@Description addItem
+ *@description AddItem
  */
-
 const saveItem = ({ name, price }) => {
   try {
     const item = {
@@ -23,35 +22,33 @@ const saveItem = ({ name, price }) => {
 };
 
 /*
- *@Description editItem
+ *@description editItem
  */
-
 const updateItem = ({ id, name, price }) => {
   try {
-    let itemDetails = items.get(id);
-    if (itemDetails != null) {
+    let itemsDetis = items.get(id);
+
+    if (itemsDetis != null) {
       const item = {
         name: name,
         price: price,
         updatedOn: new Date(),
       };
 
-      items.set(itemDetails.id, item);
+      items.set(itemsDetis.id, item);
+
       ctx.body = "Success";
     } else {
-      ctx.body = "Data Not Found";
+      ctx.body = "Not Found";
     }
-
-    items.set(item.id, item);
   } catch (error) {
     console.error(error);
   }
 };
 
 /*
- *@Description viewInventory
+ *@description viewInventroy
  */
-
 const getAllItem = () => {
   return [...items.values()];
 };
