@@ -24,7 +24,7 @@ const saveUser = ({ name, email, mobileNumber, password, role }) => {
  *@Description viewCustomers
  */
 
-const getClientDetails = () => {
+const getUserDetails = () => {
   let customers = new Map();
 
   for (const user of users.values()) {
@@ -45,5 +45,5 @@ Object.freeze(UserRole);
 
 module.exports = {
   saveUser,
-  getClientDetails,
+  getUserDetails,
 };

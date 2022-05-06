@@ -1,5 +1,10 @@
 const Router = require("@koa/router");
-const { saveItem, updateItem, getAllItem } = require("../api/item.api");
+const {
+  saveItem,
+  updateItem,
+  getAllItem,
+  getItemById,
+} = require("../api/item.api");
 
 const router = new Router({
   prefix: "/item",
@@ -33,6 +38,16 @@ router.put("/", (ctx) => {
  */
 router.get("/", (ctx) => {
   ctx.body = getAllItem();
+  ctx.set("context-Type", "application.json");
+  ctx.status = 200;
+});
+
+/*
+ *@route GET/item by id
+ *@description Get Item By Id
+ */
+router.get("/getById", (ctx) => {
+  ctx.body = getItemById(id);
   ctx.set("context-Type", "application.json");
   ctx.status = 200;
 });

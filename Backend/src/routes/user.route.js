@@ -1,5 +1,5 @@
 const Router = require("koa-router");
-const { saveUser, getClientDetails } = require("../api/user.api");
+const { saveUser, getUserDetails } = require("../api/user.api");
 
 const router = new Router({
   prefix: "/user",
@@ -20,7 +20,7 @@ router.post("/", (ctx) => {
   @Description get all Customer
   */
 router.get("/", (ctx) => {
-  ctx.body = getClientDetails();
+  ctx.body = getUserDetails();
   ctx.set("context-Type", "application-json");
   ctx.status = 200;
 });
